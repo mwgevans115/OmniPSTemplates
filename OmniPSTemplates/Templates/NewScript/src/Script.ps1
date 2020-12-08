@@ -4,7 +4,7 @@
 
 .GUID <%=$PLASTER_Guid1%>
 
-.AUTHOR <%=$PLASTER_PARAM_FullName%>
+.AUTHOR <%=$PLASTER_PARAM_FullName%> <<%=$PLASTER_PARAM_EMail%>>
 
 .COMPANYNAME
 

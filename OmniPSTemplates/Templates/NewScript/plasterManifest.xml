@@ -29,6 +29,11 @@
                    prompt='Enter your full name'
                    store='text' />
 
+        <parameter name='EMail'
+                   type='user-email'
+                   prompt='Enter your email address'
+                   store='text' />
+
         <parameter name='License'
                    type='choice'
                    prompt='Select a license (see http://choosealicense.com for help choosing):'
