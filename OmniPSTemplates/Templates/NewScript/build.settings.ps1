@@ -152,7 +152,7 @@ Task InitialiseGit -precondition {-not (Test-Path (Join-Path $PSScriptRoot ".git
 
 # Executes before the BeforeStageFiles phase of the Build task.
 Task BeforeBuild -depends InitialiseGit {
-    Invoke-PSDepend -Path (Join-Path $PSScriptRoot build.Requirements.psd1) -Install -Import -Force
+    Invoke-PSDepend -Path (Join-Path $PSScriptRoot 'build.Requirements.psd1') -Install -Import -Force
 }
 
 # Executes after the Build task.

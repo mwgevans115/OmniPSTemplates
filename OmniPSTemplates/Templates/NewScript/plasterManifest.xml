@@ -96,7 +96,7 @@
               source='_gitignore'
               destination='.gitignore' />
         <templateFile condition='$PLASTER_PARAM_Options -contains "psake"'
-              source='build*.ps1'
+              source='build*.ps*1'
               destination='' />
         <file source='ReleaseNotes.md'
               destination=''/>
