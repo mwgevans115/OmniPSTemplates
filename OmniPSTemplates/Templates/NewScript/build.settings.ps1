@@ -141,8 +141,17 @@ Task AfterStageFiles {
 # Customize these tasks for performing operations before and/or after Build.
 ###############################################################################
 
+# Executes before BeforeBuild 
+Task InitialiseGit -precondition {-not (Test-Path (Join-Path $PSScriptRoot ".git") -PathType Container) -and (Test-Path (Join-Path $PSScriptRoot '.\.gitignore') -PathType Leaf)} {
+    git init
+    git add *
+    git config user.name $Plaster_FullName
+    git config user.email $Plaster_EMail
+    git commit -m "chore(build):initial commit"
+} 
+
 # Executes before the BeforeStageFiles phase of the Build task.
-Task BeforeBuild {
+Task BeforeBuild -depends InitialiseGit {
 }
 
 # Executes after the Build task.
