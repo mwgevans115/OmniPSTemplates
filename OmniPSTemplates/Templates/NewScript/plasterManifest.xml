@@ -95,7 +95,7 @@
         <file condition='$PLASTER_PARAM_Options -contains "Git"'
               source='_gitignore'
               destination='.gitignore' />
-        <file condition='$PLASTER_PARAM_Options -contains "psake"'
+        <templateFile condition='$PLASTER_PARAM_Options -contains "psake"'
               source='build*.ps1'
               destination='' />
         <file source='ReleaseNotes.md'

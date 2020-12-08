@@ -4,7 +4,16 @@
 
 Properties {
     # ----------------------- Basic properties --------------------------------
-
+    # Plaster Parameters
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $Plaster_EMail = "<%=$PLASTER_PARAM_EMail%>"
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $Plaster_FullName = "<%=$PLASTER_PARAM_FullName%>"
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $Plaster_ScriptDesc = <%=$PLASTER_PARAM_ScriptDesc%>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
+    $Plaster_ScriptName = <%=$PLASTER_PARAM_ScriptName%>
+    
     # The root directories for the script's docs, src and test.
     [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
     $SrcRootDir  = "$PSScriptRoot\src"
