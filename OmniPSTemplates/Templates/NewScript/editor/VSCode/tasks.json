@@ -1,0 +1,99 @@
+// Available variables which can be used inside of strings:
+// ${workspaceFolder} the path of the workspace folder that contains the tasks.json file
+// ${workspaceFolderBasename} the name of the workspace folder that contains the tasks.json file without any slashes (/)
+// ${file} the current opened file
+// ${relativeFile} the current opened file relative to the workspace folder containing the file
+// ${fileBasename} the current opened file's basename
+// ${fileBasenameNoExtension} the current opened file's basename without the extension
+// ${fileDirname} the current opened file's dirname
+// ${fileExtname} the current opened file's extension
+// ${cwd} the task runner's current working directory on startup
+// ${lineNumber} the current selected line number in the active file
+{
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                "args": [
+                    "-NoProfile",
+                    "-ExecutionPolicy",
+                    "Bypass",
+                    "-Command"
+                ]
+            }
+        }
+    },
+    "linux": {
+        "options": {
+            "shell": {
+                "executable": "/usr/bin/pwsh",
+                "args": [
+                    "-NoProfile",
+                    "-Command"
+                ]
+            }
+        }
+    },
+    "osx": {
+        "options": {
+            "shell": {
+                "executable": "/usr/local/bin/pwsh",
+                "args": [
+                    "-NoProfile",
+                    "-Command"
+                ]
+            }
+        }
+    },
+    "tasks": [
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": [
+                ".\\Tools\\build.ps1 clean"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": [
+                ".\\Tools\\build.ps1 build"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+<%
+        if ($PLASTER_PARAM_Options -contains 'Pester') {
+"        {"
+"                ""label"": ""Test"","
+"                ""type"": ""shell"","
+"                ""command"": [ "".\\Tools\\build.ps1 Test""],"
+"                ""problemMatcher"": []"
+"         },"
+        }
+%>
+<%
+        if ($PLASTER_PARAM_Options -contains 'PSScriptAnalyzer') {
+            "        {"
+            "                ""label"": ""Analyze"","
+            "                ""type"": ""shell"","
+            "                ""command"": [ "".\\Tools\\build.ps1 Analyze""],"
+            "                ""problemMatcher"": []"
+            "         },"
+            
+        }
+%>
+        {
+            "label": "Publish",
+            "type": "shell",
+            "command": [ ".\\Tools\\build.ps1 Publish"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

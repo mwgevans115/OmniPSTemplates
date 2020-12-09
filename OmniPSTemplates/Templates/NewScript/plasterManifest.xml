@@ -114,24 +114,13 @@
         <templateFile condition="$PLASTER_PARAM_License -eq 'MIT'"
                       source='license\MIT.txt'
                       destination='LICENSE.txt' />
-
-        <file condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -notcontains 'psake') -and ($PLASTER_PARAM_Options -contains 'Pester')"
-              source='editor\VSCode\tasks_pester.json'
+        <templateFile condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -contains 'psake')"
+              source='editor\VSCode\tasks.json'
               destination='.vscode\tasks.json' />
-
-        <file condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -contains 'psake') -and ($PLASTER_PARAM_Options -notcontains 'Pester')"
-              source='editor\VSCode\tasks_psake.json'
-              destination='.vscode\tasks.json' />
-
-        <file condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -contains 'psake') -and ($PLASTER_PARAM_Options -contains 'Pester')"
-              source='editor\VSCode\tasks_psake_pester.json'
-              destination='.vscode\tasks.json' />
-
-        <file condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -contains 'PSScriptAnalyzer')"
+        <file condition="($PLASTER_PARAM_Editor -eq 'VSCode')"
               source='editor\VSCode\settings.json'
               destination='.vscode\settings.json' />
-
-        <templateFile condition="($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_Options -contains 'PSScriptAnalyzer')"
+        <templateFile condition="($PLASTER_PARAM_Editor -eq 'VSCode')"
               source='editor\VSCode\launch.json'
               destination='.vscode\launch.json' />
 
