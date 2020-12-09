@@ -51,17 +51,17 @@
             "label": "Clean",
             "type": "shell",
             "command": [
-                "Write-Host 'Invoking psake on build.psake.ps1 -taskList Clean'; Invoke-psake build.psake.ps1 -taskList Clean;",
-                "Invoke-Command { Write-Host 'Completed Clean task in task runner.' }"
-            ]
+                ".\\Tools\\build.ps1 clean"
+            ],
+            "problemMatcher": []
         },
         {
             "label": "Build",
             "type": "shell",
             "command": [
-                "Write-Host 'Invoking psake on build.psake.ps1 -taskList Build'; Invoke-psake build.psake.ps1 -taskList Build;",
-                "Invoke-Command { Write-Host 'Completed Build task in task runner.' }"
+                ".\\Tools\\build.ps1 build"
             ],
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -70,18 +70,16 @@
         {
             "label": "Analyze",
             "type": "shell",
-            "command": [
-                "Write-Host 'Invoking psake on build.psake.ps1 -taskList Analyze'; Invoke-psake build.psake.ps1 -taskList Analyze;",
-                "Invoke-Command { Write-Host 'Completed Analyze task in task runner.' }"
-            ]
+            "command": [ ".\\Tools\\build.ps1 Analyze"
+            ],
+            "problemMatcher": []
         },
         {
             "label": "Publish",
             "type": "shell",
-            "command": [
-                "Write-Host 'Invoking psake on build.psake.ps1 -taskList Publish'; Invoke-psake build.psake.ps1 -taskList Publish;",
-                "Invoke-Command { Write-Host 'Completed Publish task in task runner.' }"
-            ]
+            "command": [ ".\\Tools\\build.ps1 Publish"
+            ],
+            "problemMatcher": []
         }
     ]
 }

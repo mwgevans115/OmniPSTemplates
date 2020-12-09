@@ -96,8 +96,8 @@
               source='_gitignore'
               destination='.gitignore' />
         <templateFile condition='$PLASTER_PARAM_Options -contains "psake"'
-              source='build*.ps*1'
-              destination='' />
+              source='tools\build*.ps*1'
+              destination='tools\' />
         <file source='ReleaseNotes.md'
               destination=''/>
         <file condition='$PLASTER_PARAM_Options -contains "PSScriptAnalyzer"'
