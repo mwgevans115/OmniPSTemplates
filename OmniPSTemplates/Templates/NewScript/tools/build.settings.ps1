@@ -151,11 +151,11 @@ Task AfterStageFiles {
 
 # Executes before BeforeBuild
 Task InitialiseGit -precondition {-not (Test-Path (Join-Path $Env:BHProjectPath ".git") -PathType Container) -and (Test-Path (Join-Path $Env:BHProjectPath '.\.gitignore') -PathType Leaf)} {
-    git init
-    git add *
-    git config user.name $Plaster_FullName
-    git config user.email $Plaster_EMail
-    git commit -m "chore(build):initial commit"
+    git -C $Env:BHProjectPath init
+    git -C $Env:BHProjectPath add *
+    git -C $Env:BHProjectPath config user.name $Plaster_FullName
+    git -C $Env:BHProjectPath config user.email $Plaster_EMail
+    git -C $Env:BHProjectPath commit -m "chore(build):initial commit"
 }
 
 # Executes before the BeforeStageFiles phase of the Build task.
